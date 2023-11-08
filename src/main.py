@@ -11,6 +11,9 @@ import zipfile
 with open('data/1m_music_dataset.zip', 'rb') as f:
     zipfile.ZipFile(f).extractall('data')
 
+with open(pathlib.Path('data/spotify_data.csv'), "r+") as f: s = f.read(); f.seek(0); f.write("idx" + s)
+
+
 app = FastAPI(
     title='cet-music',
     debug=False,
