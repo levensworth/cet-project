@@ -6,6 +6,10 @@ from fastapi.templating import Jinja2Templates
 from fastapi_htmx import htmx, htmx_init
 from fastapi.middleware.cors import CORSMiddleware
 from src.knn_engine_impl import KNNEngineImpl, PreferenceRecord, RecommendationRequestDTO
+# decompress data
+import zipfile
+with open('data/1m_music_dataset.zip', 'rb') as f:
+    zipfile.ZipFile(f).extractall('data')
 
 app = FastAPI(
     title='cet-music',
