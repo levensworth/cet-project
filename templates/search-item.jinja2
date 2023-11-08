@@ -1,0 +1,5 @@
+<div class="flex flex-col w-full pb-3 px-4 bg-{{ record.color }}-700 hover:bg-slate-800" >
+    <dt id='{{ record.id }}' class="mb-1 text-gray-400 md:text-lg dark:text-gray-100">{{ record.band }}</dt>
+    <dd class="text-lg font-bold">{{ record.name }}</dd>
+    <input hidden="true" name="{{ record.id }}" value="{{ record.color }}">
+</div>

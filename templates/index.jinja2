@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CET</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.7"
+        integrity="sha384-EAzY246d6BpbWR7sQ8+WEm40J8c3dHFsqC58IgPlh4kMbRRI6P6WA+LA/qGAyAu8"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-black">
+
+    <div class="flex flex-col w-full h-screen">
+    <form class="flex space-x-2 mt-6 mx-auto ">
+        <input type="search"
+            class="form-control flex h-10 w-full max-w-2xl rounded-md border px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex-1 bg-gray-800 text-white border-gray-900"
+            name="search" placeholder="Begin Typing To Search..." hx-post="/search"
+            hx-trigger="keyup changed delay:500ms, search" hx-target="#search-results"
+            hx-indicator=".htmx-indicator">
+       
+    </form>
+    <h3 class="htmx-indicator text-lg font-bold mx-auto text-white"> Loading</h3>
+
+    <div id="search-results" class="w-full md:w-fit md:mx-auto mt-3">
+    </div>
+
+    <form id='payload' hx-post="recommendation" class="flex flex-col space-x-2 mt-6 mx-auto ">
+    <div  class="border border-2 w-full md:w-fit md:mx-auto mt-3">
+    <dl id="search-payload" class="flex flex-col w-full md:w-96 text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+    </dl>
+    </div>
+    <button type="submmit" class="items-center justify-center rounded-md mt-2 mx-auto text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-white text-black">Recommendation!</button>
+    </form>
+    </div>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+# GitHub Action that uses Black to reformat the Python code in an incoming pull request.
+# If all Python code in the pull request is compliant with Black then this Action does nothing.
+# Othewrwise, Black is run and its changes are committed back to the incoming pull request.
+# https://github.com/cclauss/autoblack
+
+name: build
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+          poetry-version: 1.6.1
+      - name: update requirements
+        run: poetry export --without-hashes --format=requirements.txt > requirements.txt
+      - name: Install Black
+        run: pip install black
+      - name: Install isort
+        run: pip install isort
+      - name: check style
+        run: isort --check . && black --check .
+      - name: If needed, commit black changes to the pull request
+        if: failure()
+        run: |
+          black .
+          isort .
+          git config --global user.name 'autoblack'
+          git config --global user.email 'santiagobassani96@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git fetch
+          git checkout $GITHUB_HEAD_REF
+          git add .
+          git commit -am "fixup: Format Python code with Black and Isort"
+          git push
