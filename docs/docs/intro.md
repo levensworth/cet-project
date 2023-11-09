@@ -82,4 +82,4 @@ es el mejor orden para mostrar los resultados al usuario. Bien sabemos que el us
 mirar una lista muy larga (y si piensan que no .... preguntense cuantas veces llegan a la página 2 o 3 de google cuando buscan algo).
 
 Este proceso es completamente dominado por el conocimiento que tenemos del usuario, dependientemente de si estamos creando un sistema
-de tipo **colaborative filtering** of **content based**.
+de tipo **colaborative filtering** o **content based**.

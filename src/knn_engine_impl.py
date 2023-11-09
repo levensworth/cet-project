@@ -70,7 +70,7 @@ class KNNEngineImpl:
         
     def search_for_song(self, query: str) -> list[Record]:
         result = []
-        for row in process.extractBests(query, self.__db['track_name'], limit=5):
+        for row in process.extractBests(query, self.__db['artist_name'], limit=5):
             
             result.append(Record(
                 name=self.__db.loc[row[-1]]['track_name'],

@@ -3,6 +3,12 @@
 Esta es la página oficial de `kmusic`, aquí podrás encontrar toda la información sobre el desarrollo
 y funcionamiento del sistema.
 
+!!! note
+    Ejemplo de la web funcional disponible [aqui](https://cet-project.onrender.com/)
+
+!!! note
+    Código fuente disponible [aqui](https://github.com/levensworth/cet-project)
+
 ## Como utilizar el repositorio:
 1. Tener el interprete de `python` instalado en su computadora, para la versión 3.10
 2. Tener un editor de texto para desarrollo, `VSCode` es el que recomendamos.
