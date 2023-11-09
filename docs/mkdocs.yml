@@ -1,0 +1,21 @@
+site_name: >
+  CET: KMusic
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Intro: intro.md
+  - kmusic: kmusic.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+
+extra_css:
+  - stylesheets/extra.css
